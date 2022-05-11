@@ -1,30 +1,29 @@
+let randomNumber;
 // Функция выполнения promise
 function usePromise() {
     // Создаем promise
     const myPromise = new Promise((resolve, reject) => {
-      setTimeout(() => {
-      const randomNumber = Math.random()*100;
-      }, 3000);
-      if (randomNumber % 2 === 0){
-          resolve();
-      } else {
-          reject();
-      }
+        setTimeout(() => {
+            randomNumber = Math.floor(Math.random() * 100);
+            if (randomNumber % 2 === 0) {
+                resolve(randomNumber);
+            } else {
+                reject(randomNumber);
+            }
+        }, 3000);
     });
-  
+
     // Выполняем promise
     myPromise
-      .then((result) => {
-        console.log('Обрабатываем resolve', result);
-      })
-      .catch((error) => {
-        console.log('Обрабатываем reject', error);
-      })
-  };
-  
-  console.log('Запускаем функцию с promise');
-  usePromise();
-  console.log('Функция выполнилась');
+        .then((result) => {
+            console.log('Завершено успешно. Сгенерированное число — ', result);
+        })
+        .catch((error) => {
+            console.log('Завершено с ошибкой. Сгенерированное число — ', error);
+        })
+};
+
+usePromise();
 
 /* Задание 
 Создать Promise, в котором c задержкой в три секунды сгенерировать случайное целое число от 1 до 100. Для создания задержки использовать setTimeout.
