@@ -43,7 +43,7 @@ function checkRange() {
 
 // Функция, которая возвращает fetch
 const useRequest = () => {
-    return fetch('https://picsum.photos/v2/list?page=' + parseInt(pageStart.value) + '&limit=' + parseInt(pageEnd.value))       // Проверку на ввод не делал, в ТЗ нет ;)
+    return fetch('https://picsum.photos/v2/list?page=' + parseInt(pageStart.value) + '&limit=' + parseInt(pageEnd.value))
         .then((response) => {
             return response.json();
         })
